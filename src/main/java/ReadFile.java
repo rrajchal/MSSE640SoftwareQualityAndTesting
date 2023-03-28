@@ -10,9 +10,9 @@ import java.util.List;
 import java.io.InputStream;
 
 public class ReadFile {
-    List<Double[]> triangleList;
+    private List<Double[]> triangleDataList;
     ReadFile(String fileName) {
-        triangleList = readFile(fileName);
+        triangleDataList = readFile(fileName);
     }
 
     public List<Double[]> readFile(String path) {
@@ -49,7 +49,7 @@ public class ReadFile {
         return triangleList;
     }
 
-    public List<Double[]> getTriangleList() {
-        return this.triangleList;
+    public List<Double[]> getTriangleDataList() {
+        return this.triangleDataList;
     }
 }

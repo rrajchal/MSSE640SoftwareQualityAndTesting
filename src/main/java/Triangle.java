@@ -18,6 +18,9 @@ class Triangle {
         if (!isValidTriangle()) {
             System.out.println("Invalid Triangle: " + this);
             return TriangleType.INVALID;
+        } else if (!checkLimit()) {
+            System.out.println("Invalid Triangle Sides: " + this);
+            return TriangleType.INVALID;
         } else {
             System.out.println(this);
             if (isEquilateral()) {
@@ -28,6 +31,10 @@ class Triangle {
                 return TriangleType.SCALENE;
             }
         }
+    }
+
+    private boolean checkLimit() {
+        return this.sideA <= 1000 && this.sideB <= 1000 && this.sideC <= 1000;
     }
 
     private boolean isValidTriangle() {

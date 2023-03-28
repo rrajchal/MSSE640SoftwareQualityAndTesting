@@ -22,16 +22,16 @@ public class ReadFileTest {
         String scaleneFile = "scalene.txt";             // equilateral.txt: contains 50 triangles data
         String invalidFile = "invalid.txt";             // invalid.txt: contains 50 invalid data
         ReadFile readEquilateralFile = new ReadFile(equilateralFile);
-        equilateralTriangleList = readEquilateralFile.getTriangleList();
+        equilateralTriangleList = readEquilateralFile.getTriangleDataList();
 
         ReadFile readIsoscelesFile = new ReadFile(isoscelesFile);
-        isoscelesTriangleList = readIsoscelesFile.getTriangleList();
+        isoscelesTriangleList = readIsoscelesFile.getTriangleDataList();
 
         ReadFile readScaleneFile = new ReadFile(scaleneFile);
-        scaleneTriangleList = readScaleneFile.getTriangleList();
+        scaleneTriangleList = readScaleneFile.getTriangleDataList();
 
         ReadFile readInvalidFile = new ReadFile(invalidFile);
-        invalidTriangleList = readInvalidFile.getTriangleList();
+        invalidTriangleList = readInvalidFile.getTriangleDataList();
     }
 
     @Test

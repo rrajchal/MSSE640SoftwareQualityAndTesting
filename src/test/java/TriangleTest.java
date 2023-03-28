@@ -25,16 +25,16 @@ public class TriangleTest {
         String scaleneFile = "scalene.txt";             // equilateral.txt: contains 50 triangles data
         String invalidFile = "invalid.txt";             // invalid.txt: contains 50 invalid data
         ReadFile readEquilateralFile = new ReadFile(equilateralFile);
-        equilateralTriangleList = readEquilateralFile.getTriangleList();
+        equilateralTriangleList = readEquilateralFile.getTriangleDataList();
 
         ReadFile readIsoscelesFile = new ReadFile(isoscelesFile);
-        isoscelesTriangleList = readIsoscelesFile.getTriangleList();
+        isoscelesTriangleList = readIsoscelesFile.getTriangleDataList();
 
         ReadFile readScaleneFile = new ReadFile(scaleneFile);
-        scaleneTriangleList = readScaleneFile.getTriangleList();
+        scaleneTriangleList = readScaleneFile.getTriangleDataList();
 
         ReadFile readInvalidFile = new ReadFile(invalidFile);
-        invalidTriangleList = readInvalidFile.getTriangleList();
+        invalidTriangleList = readInvalidFile.getTriangleDataList();
 
         // Testing 50 lines of equilateral triangle data, all list should be equilateral
         for (Double[] data : equilateralTriangleList) {
@@ -137,5 +137,29 @@ public class TriangleTest {
         Assertions.assertEquals(type4, TriangleType.INVALID);
     }
 
+    @Test
+    public void boundaryValuesValidTest() {
+        Triangle equilateral1 = new Triangle(1.0, 1.0, 1.0);
+        Triangle equilateral2 = new Triangle(1000.0, 1000.0, 1000.0);
+        Triangle scalene1 = new Triangle(110.0, 900.0, 1000.0);
+        Triangle scalene2 = new Triangle(999, 1.0, 999.9);
 
+        Assertions.assertEquals(equilateral1.getTriangleType(), TriangleType.EQUILATERAL);
+        Assertions.assertEquals(equilateral2.getTriangleType(), TriangleType.EQUILATERAL);
+        Assertions.assertEquals(scalene1.getTriangleType(), TriangleType.SCALENE);
+        Assertions.assertEquals(scalene2.getTriangleType(), TriangleType.SCALENE);
+    }
+
+    @Test
+    public void boundaryValuesInvalidTest() {
+        Triangle equilateral1 = new Triangle(1000.1, 1000.1, 1000.1);
+        Triangle scalene1 = new Triangle(101.0, 900.0, 1000.1);
+        Triangle scalene2 = new Triangle(0.0, 9.0, 1000);
+        Triangle scalene3 = new Triangle(1000.0, 1001.0, 1000.1);
+
+        Assertions.assertEquals(equilateral1.getTriangleType(), TriangleType.INVALID);
+        Assertions.assertEquals(scalene1.getTriangleType(), TriangleType.INVALID);
+        Assertions.assertEquals(scalene2.getTriangleType(), TriangleType.INVALID);
+        Assertions.assertEquals(scalene3.getTriangleType(), TriangleType.INVALID);
+    }
 }
