@@ -10,7 +10,6 @@ class Triangle {
     private final double sideB;
     private final double sideC;
 
-
     Triangle(double sideA, double sideB, double sideC) {
         this.sideA = sideA;
         this.sideB = sideB;
