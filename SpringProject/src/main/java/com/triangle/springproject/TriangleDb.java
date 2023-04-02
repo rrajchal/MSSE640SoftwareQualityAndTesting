@@ -57,7 +57,6 @@ public class TriangleDb {
             ResultSetMetaData rsmd = rs.getMetaData();
             int numColumns = rsmd.getColumnCount();
             while (rs.next()) {
-                System.out.println("Data");
                 Map<String, Object> row = new LinkedHashMap<>();
                 for (int i = 1; i <= numColumns; i++) {
                     String columnName = rsmd.getColumnName(i);
@@ -128,7 +127,6 @@ public class TriangleDb {
 
     public void close() {
         try {
-            // Close the database connection
             if (connection != null && !connection.isClosed())
                 connection.close();
         } catch (SQLException e) {

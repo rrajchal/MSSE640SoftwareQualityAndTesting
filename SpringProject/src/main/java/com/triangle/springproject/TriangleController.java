@@ -1,8 +1,6 @@
 package com.triangle.springproject;
 
-import com.google.gson.JsonObject;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import com.google.gson.Gson;
@@ -89,7 +87,6 @@ public class TriangleController {
             db.close();
         }
     }
-
 
     @DeleteMapping(value = "/triangle/delete", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

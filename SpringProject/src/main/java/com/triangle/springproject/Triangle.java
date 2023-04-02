@@ -39,7 +39,7 @@ class Triangle {
         return this.sideA <= 1000 && this.sideB <= 1000 && this.sideC <= 1000;
     }
 
-    private boolean isValidTriangle() {
+    public boolean isValidTriangle() {
         if (this.sideA > 0 && this.sideB > 0 && this.sideC > 0) {
             return (this.sideA + this.sideB > this.sideC) &&
                     (this.sideA + this.sideC > this.sideB) &&
@@ -48,12 +48,17 @@ class Triangle {
         return false;
     }
 
-    private boolean isEquilateral() {
-        return this.sideA == this.sideB && this.sideB == this.sideC;
+    public boolean isEquilateral() {
+        return isValidTriangle() && this.sideA == this.sideB && this.sideB == this.sideC;
     }
 
-    private boolean isIsosceles() {
-        return this.sideA == this.sideB || this.sideB == this.sideC || this.sideA == this.sideC;
+    public boolean isIsosceles() {
+        return isValidTriangle() &&
+                (this.sideA == this.sideB || this.sideB == this.sideC || this.sideA == this.sideC);
+    }
+
+    public boolean isScalene() {
+        return isValidTriangle() && !isEquilateral() && !isIsosceles();
     }
 
     public double getSideA() {
